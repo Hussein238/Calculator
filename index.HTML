@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+   <link rel="stylesheet" type="text/css" href="style.CSS" > 
+</head>
+<body>
+    <h1 CALCULATOR></h1>
+<div id="container">
+    <div id="screen">
+   <input class="display-box" type="text" id="result" disabled>
+   <input type="button" value="AC" onclick="clearDisplay()">
+    </div>
+    <div id="first-row">
+<input class="numbers" type="button" value=7 onclick="display(7)">
+<input class="numbers" type="button" value=8 onclick="display(8)">
+<input class="numbers" type="button" value=9 onclick="display(9)">
+<input type="button" value=" x " onclick="display(' x ')">
+   </div>
+    <div id="second-row">
+    <input class="numbers" type="button" value=4 onclick="display(4)">
+    <input class="numbers" type="button" value=5 onclick="display(5)">
+    <input class="numbers" type="button" value=6 onclick="display(6)">
+    <input type="button" value=" - " onclick="display(' - ')">
+    </div>
+    <div id="third-row">
+    <input class="numbers" type="button" value=1 onclick="display(1)">
+    <input class="numbers" type="button" value=2 onclick="display(2)">
+    <input class="numbers" type="button" value=3 onclick="display(3)">
+    <input type="button" value=" + " onclick="display(' + ')">
+    <input id="point" type="button" value="." onclick="display('.')">
+    <input type="button" value="=" onclick="equal()">
+    </div>
+</div>
+    <script src ="script.js" ></script>
+</body>
+</html>
