@@ -1,17 +1,8 @@
 
 let result=null;
-
-// let firstNum;
-// let operator;
-// let secNum;
 let equation;
 let finalResult = false;
-let mutableResult;
 
-// get the display value to allow back tracking
-function getValues(){
-    return mutableResult =  document.getElementById("result").value; 
-  }
   // clears all values from the display and equation 
 function clearDisplay(){
     finalResult = false;
@@ -69,17 +60,22 @@ const operate = function(firstNumber, operator, secondNumber){
         result = multiply(firstNumber,secondNumber);
         break;
     case "/":
-        result = divide(firstNumber,secondNumber);
+        if(secondNumber === "0" ){
+            result = 0;
+        } else{
+            result = divide(firstNumber,secondNumber);
+        }
+       
     default:
         
-   }if(!isNaN(result)){ // if result is NaN will get error when rounding   
+   }if(!isNaN(result) || typeof result === "number"){ // if result is NaN will get error when rounding   
     return result = Number(result.toFixed(2)); // stop the user from displaying a number with more than 2 decimal points without it effecting the calculation
    } else{
     return result;
    }
 }
 
-// Inputs button values on the calculator display.
+// Inputs button values to the calculator display.
 function display(value) {
     getEquation();
     // Reset the value when user gets an error
@@ -117,19 +113,11 @@ if(finalResult === true && typeof value === "number" ){
         finalResult = false;
         return document.getElementById("result").value += value;
     }
-
-  } 
-
-
-function disableBtn(){
-  return  document.getElementsByClassName("numbers").disabled = true;
-}
-function enableBtn(){
-  return  document.getElementsByClassName("numbers").disabled = false;
-}
+} 
 
 getEquation();
 
+// Makes the current number negative or positive
  function plusMinus(){  
     getEquation();
     if (equation.length === 3){
@@ -146,6 +134,7 @@ getEquation();
     }
 }
 
+// add backspace functionality by removing last number pressed or operator 
 function backTick(){ 
     getEquation();
      if(equation.length === 3){
